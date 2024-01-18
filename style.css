@@ -21,6 +21,7 @@ span:first-child {
 }
 
 body {
+    padding-top: 20px;
     background-color: #282828;
     height: 100vh
 }
@@ -51,7 +52,9 @@ body {
     height: 160px;
     width: 160px;
     border-radius: 100%;
-    padding: 17px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+
 
 }
 
@@ -63,7 +66,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.7);
+    /* Light white shadow */
+    /* box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.5) */
 }
 
 .number {
@@ -85,7 +94,7 @@ circle {
     stroke: url(#GradientColor);
     stroke-width: 20px;
     stroke-dasharray: 472;
-    stroke-dashoffset: 472;
+    stroke-dashoffset: 0;
     animation: anim 2s linear forwards;
 }
 
@@ -99,8 +108,8 @@ h3 {
     color: white;
 }
 
-@keyframes anim {
+/* @keyframes anim {
     100% {
         stroke-dashoffset: 0;
     }
-}
+} */

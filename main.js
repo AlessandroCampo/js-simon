@@ -1,8 +1,12 @@
 let today = new Date()
 const timerHTML = document.getElementById("timer")
 const hoursHTML = document.getElementById("hours")
-const minutesHTML = document.getElementById("hours")
-const secondsHTML = document.getElementById("hours")
+const minutesHTML = document.getElementById("minutes")
+const secondsHTML = document.getElementById("seconds")
+const circle1 = document.querySelector("#seconds_container circle")
+const circle2 = document.querySelector("#minutes_container circle")
+const circle3 = document.querySelector("#hours_container circle")
+
 let secondsLeft
 let minutesLeft
 let hoursLeft
@@ -29,9 +33,23 @@ while (minutesLeft > 60) {
     hoursLeft++
 }
 
+hoursHTML.innerText = hoursLeft
+minutesHTML.innerText = minutesLeft
+secondsHTML.innerText = secondsLeft
+
+
+let circleDashOffset1 = 472 - (secondsLeft * 472 / 60)
+circle1.style.strokeDashoffset = circleDashOffset1
+let circleDashOffset2 = 472 - (minutesLeft * 472 / 60)
+circle2.style.strokeDashoffset = circleDashOffset2
+let circleDashOffset3 = 472 - (hoursLeft * 472 / 24)
+circle3.style.strokeDashoffset = circleDashOffset3
+
 console.log(hoursLeft, minutesLeft, secondsLeft)
 function timerFunction() {
+
     secondsLeft--
+
     if (secondsLeft == 0) {
         secondsLeft = 60
         minutesLeft--
@@ -41,6 +59,33 @@ function timerFunction() {
         minutesLeft = 60
         hoursLeft--
     }
+
+    circleDashOffset1 = 472 - (secondsLeft * 472 / 60)
+    circleDashOffset2 = 472 - (minutesLeft * 472 / 60)
+    circleDashOffset3 = 472 - (hoursLeft * 472 / 24)
+
+    // circle1.style.strokeDashoffset = circleDashOffset1
+    // circle2.style.strokeDashoffset = circleDashOffset2
+    // circle3.style.strokeDashoffset = circleDashOffset3
+
+    gsap.to(circle1, {
+        strokeDashoffset: circleDashOffset1,
+        duration: 1
+    })
+
+    gsap.to(circle2, {
+        strokeDashoffset: circleDashOffset2,
+        duration: 1
+    })
+
+    gsap.to(circle3, {
+        strokeDashoffset: circleDashOffset3,
+        duration: 1
+    })
+
+    hoursHTML.innerText = hoursLeft
+    minutesHTML.innerText = minutesLeft
+    secondsHTML.innerText = secondsLeft
 
     // if (secondsLeft < 10 && minutesLeft > 10) {
     //     timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${String(secondsLeft).padStart(2, '0')}`
