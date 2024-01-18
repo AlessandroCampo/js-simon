@@ -30,7 +30,7 @@ console.log(hoursLeft, minutesLeft, secondsLeft)
 function timerFunction() {
     secondsLeft--
     if (secondsLeft == 0) {
-        seconds = 60
+        secondsLeft = 60
         minutesLeft--
     }
 
