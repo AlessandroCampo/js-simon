@@ -1,5 +1,8 @@
 let today = new Date()
 const timerHTML = document.getElementById("timer")
+const hoursHTML = document.getElementById("hours")
+const minutesHTML = document.getElementById("hours")
+const secondsHTML = document.getElementById("hours")
 let secondsLeft
 let minutesLeft
 let hoursLeft
@@ -10,8 +13,8 @@ const targetHours = 9
 const targetMinutes = 30
 const targetSeconds = 0
 let hoursLeftUntilTomorrow = 23 - currentHours
-let minutesLeftUntilNextHour = 60 - currentMinutes
-let secondsLeftUntilNextMinute = 60 - currentSeconds
+let minutesLeftUntilNextHour = 59 - currentMinutes
+let secondsLeftUntilNextMinute = 59 - currentSeconds
 hoursLeft = hoursLeftUntilTomorrow + targetHours
 minutesLeft = minutesLeftUntilNextHour + targetMinutes
 secondsLeft = secondsLeftUntilNextMinute + targetSeconds
@@ -39,15 +42,15 @@ function timerFunction() {
         hoursLeft--
     }
 
-    if (secondsLeft < 10 && minutesLeft > 10) {
-        timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${String(secondsLeft).padStart(2, '0')}`
-    } else if (secondsLeft > 10 && minutesLeft > 10) {
-        timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${secondsLeft}`
-    } else if (secondsLeft < 10 && minutesLeft < 10) {
-        timerHTML.innerText = `${hoursLeft}:${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`
-    } else if (secondsLeft > 10 && minutesLeft < 10) {
-        timerHTML.innerText = `${hoursLeft}:${String(minutesLeft).padStart(2, '0')}:${secondsLeft}`
-    }
+    // if (secondsLeft < 10 && minutesLeft > 10) {
+    //     timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${String(secondsLeft).padStart(2, '0')}`
+    // } else if (secondsLeft > 10 && minutesLeft > 10) {
+    //     timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${secondsLeft}`
+    // } else if (secondsLeft < 10 && minutesLeft < 10) {
+    //     timerHTML.innerText = `${hoursLeft}:${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`
+    // } else if (secondsLeft > 10 && minutesLeft < 10) {
+    //     timerHTML.innerText = `${hoursLeft}:${String(minutesLeft).padStart(2, '0')}:${secondsLeft}`
+    // }
 }
 
 
