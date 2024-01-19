@@ -85,10 +85,14 @@ function timerFunction() {
 
     hoursHTML.innerText = hoursLeft
     minutesHTML.innerText = minutesLeft
-    secondsHTML.innerText = secondsLeft
+    // secondsHTML.innerText = secondsLeft
 
     // if (secondsLeft < 10 && minutesLeft > 10) {
     //     timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${String(secondsLeft).padStart(2, '0')}`
+
+    secondsLeft < 10 ? secondsHTML.innerText = '0' + secondsLeft : secondsHTML.innerText = secondsLeft;
+
+    minutesLeft < 10 ? minutesHTML.innerText = '0' + minutesLeft : minutesHTML.innerText = minutesLeft;
     // } else if (secondsLeft > 10 && minutesLeft > 10) {
     //     timerHTML.innerText = `${hoursLeft}:${minutesLeft}:${secondsLeft}`
     // } else if (secondsLeft < 10 && minutesLeft < 10) {
