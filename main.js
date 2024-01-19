@@ -36,6 +36,9 @@ while (minutesLeft > 60) {
 hoursHTML.innerText = hoursLeft
 minutesHTML.innerText = minutesLeft
 secondsHTML.innerText = secondsLeft
+secondsLeft < 10 ? secondsHTML.innerText = '0' + secondsLeft : secondsHTML.innerText = secondsLeft;
+
+minutesLeft < 10 ? minutesHTML.innerText = '0' + minutesLeft : minutesHTML.innerText = minutesLeft;
 
 
 let circleDashOffset1 = 472 - (secondsLeft * 472 / 60)
@@ -103,5 +106,5 @@ function timerFunction() {
 }
 
 
-setInterval(timerFunction, 1000)
+const countdown = setInterval(timerFunction, 1000)
 
